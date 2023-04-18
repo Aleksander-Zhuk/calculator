@@ -1,11 +1,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Main {
     public static void main (String[] arg) throws FileNotFoundException {
 
         File file = new File("imput.txt");
+        File file1 = new File("output.txt");
+        PrintStream printStream = new PrintStream(file1);
 
         Scanner sc = new Scanner(file);
         String[] str = sc.nextLine().split(" ");
@@ -13,6 +16,7 @@ public class Main {
         boolean flag2 = false;
         boolean flag3 = false;
         double a = 0, b = 0;
+
 
         try {
             a = Double.parseDouble(str[0]);
@@ -30,19 +34,19 @@ public class Main {
         if (flag2 ){
             switch (str[1]){
                 case "+":{
-                    System.out.println(a + b);
+                    printStream.println(a + b);
                     break;
                 }
                 case "-":{
-                    System.out.println(a - b);
+                    printStream.println(a - b);
                     break;
                 }
                 case "*":{
-                    System.out.println(a * b);
+                    printStream.println(a * b);
                     break;
                 }
                 case "/":{
-                    if (b != 0) System.out.println(a / b);
+                    if (b != 0) printStream.println(a / b);
                     else System.out.println("Error! Division by zero");
                     break;
                 }
