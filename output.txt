@@ -1,1 +1,6 @@
-912.0
+159 + 753 = 912.0
+25 + m = Error! Not number
+o - 6 = Error! Not number
+12 j 45 = Operation Error!
+12 * 5 = 60.0
+456 / 0 = Error! Division by zero

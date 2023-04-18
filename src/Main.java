@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+
 public class Main {
     public static void main (String[] arg) throws FileNotFoundException {
 
@@ -11,25 +12,31 @@ public class Main {
         PrintStream printStream = new PrintStream(file1);
 
         Scanner sc = new Scanner(file);
-        String[] str = sc.nextLine().split(" ");
-        boolean flag = true;
-        boolean flag2 = false;
-        boolean flag3 = false;
-        double a = 0, b = 0;
 
 
-        try {
+
+        while (sc.hasNext()){
+            String str1 = sc.nextLine();
+            String[] str = str1.split(" ");
+            double a = 0, b = 0;
+            boolean flag = true;
+            boolean flag2 = false;
+            boolean flag3 = false;
+            printStream.print(str1+" = ");
+
+
+            try {
             a = Double.parseDouble(str[0]);
             b = Double.parseDouble(str[2]);
         }
         catch (NumberFormatException ex){
-            System.out.println("Error! Not number");
+            printStream.println("Error! Not number");
             flag = false;
-            return;
+            continue;
         }
 
         if ("+-*/".contains(str[1]) & flag ) flag2 = true;
-        else System.out.println("Operation Error!");
+        else printStream.println("Operation Error!");
 
         if (flag2 ){
             switch (str[1]){
@@ -47,10 +54,12 @@ public class Main {
                 }
                 case "/":{
                     if (b != 0) printStream.println(a / b);
-                    else System.out.println("Error! Division by zero");
+                    else printStream.println("Error! Division by zero");
                     break;
                 }
             }
         }
+        }
+        sc.close();
     }
 }
